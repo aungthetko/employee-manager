@@ -13,6 +13,7 @@ import { EmployeeService } from './service/employee.service';
 export class AppComponent implements OnInit{
   
   public employees!: Employee[];
+  public lastEmployees!: Employee[];
   public editEmployee: Employee | null | undefined;
   public deleteEmployee: Employee | undefined | null;
 
@@ -20,6 +21,7 @@ export class AppComponent implements OnInit{
  
   ngOnInit(){
     this.getEmployees();
+    this.getLastEmployees();
   }
 
   public getEmployees(): void {
@@ -33,12 +35,24 @@ export class AppComponent implements OnInit{
     )
   }
 
+  public getLastEmployees(): void {
+    this.employeeService.getlastEmployees().subscribe(
+      (response: Employee[]) => {
+        this.lastEmployees = response;
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    )
+  }
+
   public deleteAllEmployee(): void {
     const length: any  = this.employees?.length;
     if(length > 0){
       this.employeeService.deleteAllEmployees().subscribe(
         (undefined)
       );
+      window.location.reload();
     }else{
       return;
     }

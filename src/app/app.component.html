@@ -22,13 +22,10 @@
     </form>
   </div>
   </div>
-</nav>
+</nav>  
 
-
-
-<div class="container mt-3" id="main-container">
+<div class="container mt-3 mb-3" id="main-container">
     <h3 class="mb-3">Employee management application using <strong>Spring Boot & Angular12</strong></h3>
-
     <div class="paragraph mb-5">
       Alrigh, if you want to see <strong>project demo</strong> and 
       don't know how to <strong>add new employee.</strong> I made it easy for
@@ -194,11 +191,54 @@
     </div>
   </div>
 </div>
-  <div *ngIf="employees?.length === 0" class="alert alert-warning" role="alert">
-    Oops! found no employees. <br>
-    Employees array length size : {{employees?.length}}
+  <div class="row">
+    <div class="col-9">
+      <div *ngIf="employees?.length === 0" class="alert alert-warning" role="alert">
+        Oops! found no employees. <br>
+        Employees array length size : {{employees?.length}}
+      </div>
+    </div>
   </div>
 </div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="container">
+    <div class="row p-3">
+      <div class="col">
+        <h4>Contact Me</h4>
+        <div class="contact-icon">
+          <i class="fa fa-mobile"></i> +959 795 182 721 <br>
+          <i class="fa fa-map-marker"></i> somewhere away from this toxic world
+        </div>
+      </div>
+      <div class="col">
+        <h4>About Me</h4>
+        <p>Young and handsome boy who also willing to learn new technologies. Specialist in
+          Java, Spring, Angular. Get in touched with me
+        </p> 
+        <div class="social-link">
+          <a href="https://www.facebook.com/aungthet.ko.1610" target="_blank"><i class="fa fa-facebook-square"></i></a>
+          <a href="https://github.com/aungthetko" target="_blank"><i class="fa fa-github"></i></a>
+          <a href="mailto:oungthetko18893@gmail.com"><i class="fa fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="col">
+        <h4>Recent Employees</h4>
+        <div *ngFor="let item of lastEmployees" class="recent-card">
+          <a href="" class="recent-employee-name">{{item.firstName}} {{item.lastName}}</a>
+            <span class="show-active">active</span>
+          <hr style="margin-bottom: 0px;">
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="">
+    <p class="footer-text">aungthetko&copy;developer.com</p>
+  </div>
+</div>
+
 
 
 
